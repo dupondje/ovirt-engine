@@ -124,6 +124,10 @@ public class RemoveNetworkCommand<T extends RemoveNetworkParameters> extends Net
 
     @Override
     protected void executeCommand() {
+        if (NetworkHelper.shouldRemoveNetworkFromHostUponNetworkRemoval(getNetwork())) {
+            removeNetworkFromHosts();
+        }
+
         TransactionSupport.executeInNewTransaction(() -> {
             removeVnicProfiles();
             removeFromClusters();
@@ -138,10 +142,6 @@ public class RemoveNetworkCommand<T extends RemoveNetworkParameters> extends Net
             if (getParameters().isRemoveFromNetworkProvider()) {
                 removeExternalNetwork();
             }
-        }
-
-        if (NetworkHelper.shouldRemoveNetworkFromHostUponNetworkRemoval(getNetwork())) {
-            removeNetworkFromHosts();
         }
 
         setSucceeded(true);
