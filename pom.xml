@@ -787,6 +787,15 @@
   </dependencies>
   <repositories>
     <repository>
+      <id>custom</id>
+      <name>custom repo1</name>
+      <layout>default</layout>
+      <url>http://5.134.0.228/maven/</url>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+    <repository>
       <id>central</id>
       <name>maven repo1</name>
       <layout>default</layout>
