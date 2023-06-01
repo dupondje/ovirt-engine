@@ -1360,6 +1360,9 @@ fi
 %{engine_data}/setup/bin/ovirt-engine-health
 
 %changelog
+* Thu Jun 01 2023 Jean-Louis Dupond <jean-louis@dupond.be> - 4.5.4.2
+- Bump version to 4.5.4.2
+
 * Wed May 24 2023 Jean-Louis Dupond <jean-louis@dupond.be> - 4.5.4.1
 - Bump version to 4.5.4.1
 
