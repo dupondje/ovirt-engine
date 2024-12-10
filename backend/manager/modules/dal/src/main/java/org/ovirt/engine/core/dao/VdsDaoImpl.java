@@ -242,7 +242,7 @@ public class VdsDaoImpl extends BaseDao implements VdsDao {
                 getCustomMapSqlParameterSource()
                         .addValue("storage_pool_id", storagePool)
                         .addValue("statuses",
-                                statuses == null?
+                                statuses == null ?
                                         null :
                                         statuses.stream()
                                                 .map(VDSStatus::getValue)
@@ -421,6 +421,7 @@ public class VdsDaoImpl extends BaseDao implements VdsDao {
         entity.setOvnConfigured(rs.getBoolean("ovn_configured"));
         entity.setCpuTopology(SerializationFactory.getDeserializer().deserialize(rs.getString("cpu_topology"), ArrayList.class));
         entity.setVdsmCpusAffinity(rs.getString("vdsm_cpus_affinity"));
+        entity.setQemuImageInfoBitmaps(rs.getBoolean("qemu_image_info_bitmaps"));
         return entity;
     };
 }
