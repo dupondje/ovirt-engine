@@ -570,7 +570,7 @@ public final class VdsProperties {
     // Network provider agent id
     public static final String OPENSTACK_BINDING_HOST_IDS = "openstack_binding_host_ids";
 
-    // cinderlib
+    // Managed Block Storage
     public static final String CONNECTOR_INFO = "connector_info";
 
     // incremental backup
@@ -591,4 +591,8 @@ public final class VdsProperties {
     public static final String BOOT_UUID = "boot_uuid";
 
     public static final String CD_CHANGE_PDIV = "cd_change_pdiv";
+
+    public static final String QEMU_IMAGE_INFO_BITMAPS = "qemu_image_info_bitmaps";
+
+    public static final String REDEFINE_CHECKPOINT_VALIDATE = "redefine_checkpoint_validate";
 }

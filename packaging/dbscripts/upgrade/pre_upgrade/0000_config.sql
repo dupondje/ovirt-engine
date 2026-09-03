@@ -45,6 +45,7 @@ select fn_db_rename_config_key('FreeSpaceLow', 'WarningLowSpaceIndicator', 'gene
 select fn_db_rename_config_key('MaxBlockDiskSize', 'MaxBlockDiskSizeInGibiBytes', 'general');
 select fn_db_rename_config_key('RetryToRunAutoStartVmIntervalInSeconds','RetryToRunAutoStartVmShortIntervalInSeconds','general');
 select fn_db_rename_config_key('MaxNumOfTriesToRunFailedAutoStartVm','NumOfTriesToRunFailedAutoStartVmInShortIntervals','general');
+select fn_db_rename_config_key('CinderlibCommandTimeoutInMinutes', 'ManagedBlockCommandTimeoutInMinutes', 'general');
 
 ------------------------------------------------------------------------------------
 --                  Add configuration values section
@@ -699,7 +700,8 @@ select fn_db_add_config_value('VdsCertificateValidityInDays','1827','general');
 --Handling Virtual Machine Domain Name
 select fn_db_add_config_value_for_versions_up_to('VM32BitMaxMemorySizeInMB','20480','4.8');
 select fn_db_add_config_value_for_versions_up_to('VM64BitMaxMemorySizeInMB','6291456','4.5');
-select fn_db_add_config_value_for_versions_up_to('VM64BitMaxMemorySizeInMB','16777216','4.8');
+select fn_db_add_config_value_for_versions_up_to('VM64BitMaxMemorySizeInMB','16777216','4.7');
+select fn_db_add_config_value('VM64BitMaxMemorySizeInMB', '67108864', '4.8');
 select fn_db_add_config_value_for_versions_up_to('VMPpc64BitMaxMemorySizeInMB', '1048576', '4.3');
 select fn_db_add_config_value_for_versions_up_to('VMPpc64BitMaxMemorySizeInMB', '6291456', '4.8');
 select fn_db_add_config_value('VmGracefulShutdownMessage','System Administrator has initiated shutdown of this Virtual Machine. Virtual Machine is shutting down.','general');
@@ -1000,7 +1002,7 @@ select fn_db_add_config_value('MaxBackupBlockScratchDiskInitialSizePercents','20
 select fn_db_add_config_value('MinBackupBlockScratchDiskInitialSizeInGB','4','general');
 
 -- Managed block storage
-select fn_db_add_config_value('CinderlibCommandTimeoutInMinutes','2','general');
+select fn_db_add_config_value('ManagedBlockCommandTimeoutInMinutes','2','general');
 
 select fn_db_add_config_value('NumOfPciExpressPorts', '16', 'general');
 
@@ -1189,6 +1191,7 @@ select fn_db_update_config_value('MaxNumOfVmCpus', '{"x86":710,"ppc":384,"s390x"
 select fn_db_update_config_value('MaxNumOfCpuPerSocket', '254', '4.2');
 select fn_db_update_config_value_for_versions_from_up_to('VM64BitMaxMemorySizeInMB', '6291456', '4.2','4.5');
 select fn_db_update_config_value('VM64BitMaxMemorySizeInMB', '16777216', '4.6');
+select fn_db_update_config_value('VM64BitMaxMemorySizeInMB', '67108864', '4.8');
 select fn_db_update_config_value_for_versions_from_up_to('VMPpc64BitMaxMemorySizeInMB', '6291456', '4.4','4.6');
 select fn_db_update_config_value('MaxNumOfVmSockets', '10000', '4.6');
 
